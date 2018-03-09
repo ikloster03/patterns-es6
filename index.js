@@ -1,7 +1,7 @@
 import Singleton from './Patterns/Singleton'
 import Factory from './Patterns/Factory'
 import { Test, TestChild, TestCollection } from './Patterns/Iterator'
-
+import Sale from './Patterns/Decorator'
 
 // Singleton
 console.log('************Singleton************')
@@ -22,6 +22,7 @@ s2.publicMethod2()
 
 console.log('s1 === s2: ' + s1 === s2)
 console.log('\n')
+
 
 // Factory
 console.log('************Factory************')
@@ -56,6 +57,7 @@ console.log(str2.test2())
 console.log(str3.test2())
 console.log('\n')
 
+
 // Iterator
 console.log('************Iterator************')
 
@@ -85,3 +87,21 @@ for ( let t of tc ) {
     console.log(t.test2())
 }
 console.log('\n')
+
+
+// Decorator
+console.log('************Decorator************')
+
+let sale = new Sale()
+
+sale.decorators.newtax = {
+    getPrice( price ) {
+        return price + price * 0.2
+    }
+}
+
+sale.decorate('fedtax')
+sale.decorate('newtax')
+sale.decorate('money')
+console.log(sale.getPrice())
+
