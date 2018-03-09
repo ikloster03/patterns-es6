@@ -54,16 +54,4 @@ let Factory = (() => {
     return Factory
 })( )
 
-Factory.F1 = function( ) {
-    this.prop1 = 1
-}
-
-Factory.F2 = function( ) {
-    this.prop1 = 2
-}
-
-Factory.F3 = function( ) {
-    this.prop1 = 3
-}
-
 export default Factory

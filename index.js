@@ -26,6 +26,18 @@ console.log('\n')
 // Factory
 console.log('************Factory************')
 
+Factory.F1 = function( ) {
+    this.prop1 = 1
+}
+
+Factory.F2 = function( ) {
+    this.prop1 = 2
+}
+
+Factory.F3 = function( ) {
+    this.prop1 = 3
+}
+
 let f1 = Factory.factory('F1')
 let f2 = Factory.factory('F2')
 let f3 = Factory.factory('F3')
