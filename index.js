@@ -3,6 +3,7 @@ import Factory from './Patterns/Factory'
 import { Test, TestChild, TestCollection } from './Patterns/Iterator'
 import Sale from './Patterns/Decorator'
 import Validator from './Patterns/Validator'
+import NewFacade from './Patterns/Facade'
 
 // Singleton
 console.log('************Singleton************')
@@ -151,3 +152,10 @@ validator.validate( data )
 if( validator.hasErrors( ) ) {
     validator.prinErrors( )
 }
+console.log('\n')
+
+
+// Facade
+console.log('************Facade************')
+let facade = new NewFacade( 'propNF' )
+facade.method( 'new facade ' )
