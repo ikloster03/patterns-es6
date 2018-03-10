@@ -2,6 +2,7 @@ import Singleton from './Patterns/Singleton'
 import Factory from './Patterns/Factory'
 import { Test, TestChild, TestCollection } from './Patterns/Iterator'
 import Sale from './Patterns/Decorator'
+import Validator from './Patterns/Validator'
 
 // Singleton
 console.log('************Singleton************')
@@ -104,4 +105,49 @@ sale.decorate('fedtax')
 sale.decorate('newtax')
 sale.decorate('money')
 console.log(sale.getPrice())
+console.log('\n')
 
+
+// Validator
+console.log('************Validator************')
+let data = {
+    firstName: '',
+    lastName: 'Smith',
+    age: 'kkkk',
+    username: 'archer01@@'
+}
+
+let config = {
+    firstName: 'isNonEmpty',
+    age: 'isNumber',
+    username: 'isAlphNum'
+}
+
+let validator = new Validator( config )
+
+validator.types.isNonEmpty = {
+    validate( value ) {
+        return value !== ''
+    },
+    instructions: 'the value cannot be empty'
+}
+
+validator.types.isNumber = {
+    validate( value ) {
+        return !isNaN( value )
+    },
+    instructions: 'the value can only be a valid number, e.g. 1,3.14 or 2010'
+}
+
+validator.types.isAlphNum = {
+    validate( value ) {
+        return !/[^a-z0-9]/i.test( value )
+    },
+    instructions: 'the value can only contain characters and numbers, no special symbols'
+}
+
+validator.validate( data )
+
+if( validator.hasErrors( ) ) {
+    validator.prinErrors( )
+}
