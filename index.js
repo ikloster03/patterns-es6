@@ -4,6 +4,7 @@ import { Test, TestChild, TestCollection } from './Patterns/Iterator'
 import Sale from './Patterns/Decorator'
 import Validator from './Patterns/Validator'
 import NewFacade from './Patterns/Facade'
+import DataProxy from './Patterns/Proxy'
 
 // Singleton
 console.log('************Singleton************')
@@ -159,3 +160,13 @@ console.log('\n')
 console.log('************Facade************')
 let facade = new NewFacade( 'propNF' )
 facade.method( 'new facade ' )
+console.log('\n')
+
+
+// Proxy
+console.log('************Proxy************')
+let proxyData = new DataProxy( )
+console.log(proxyData.result('test'))
+console.log(proxyData.result('test2'))
+console.log(proxyData.result('test2'))
+console.log(proxyData.result('test'))
