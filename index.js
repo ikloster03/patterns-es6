@@ -5,6 +5,7 @@ import Sale from './Patterns/Decorator'
 import Validator from './Patterns/Validator'
 import NewFacade from './Patterns/Facade'
 import DataProxy from './Patterns/Proxy'
+import { TestObserver, TestSubject, Counter } from './Patterns/Observer'
 
 // Singleton
 console.log('************Singleton************')
@@ -170,3 +171,18 @@ console.log(proxyData.result('test'))
 console.log(proxyData.result('test2'))
 console.log(proxyData.result('test2'))
 console.log(proxyData.result('test'))
+console.log('\n')
+
+
+// Observer
+console.log('************Observer************')
+let counter = new Counter()
+let observer1 = new TestObserver(counter.next())
+let observer2 = new TestObserver(counter.next())
+let subject = new TestSubject()
+console.log('observers', observer1.getId(), observer2.getId())
+subject.add(observer1)
+subject.add(observer2)
+subject.setState( 'state --- 1111' )
+subject.remove(observer1)
+subject.setState( 'state --- 2222' )
