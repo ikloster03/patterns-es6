@@ -1,8 +1,7 @@
 import TestObserver from './TestObserver'
 import TestSubject from './TestSubject'
-import Counter from './Counter'
 
-export { TestObserver, TestSubject, Counter }
+export { TestObserver, TestSubject }
 
 // 'use strict';
 
